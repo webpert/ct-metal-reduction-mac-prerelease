@@ -1,0 +1,63 @@
+# model parameters
+source_path: "/workspace/data/CVPR2026/real_walnut"
+
+view_percentile: 98.0
+model_path: ""
+mac_basis_path: "NIST/3basis_MAC.npz"
+ply_path: ""
+data_device: "cuda"
+scale_min: 0.0005
+scale_max: 0.5
+eta_mode: 0     # 0: constant (fixed parameter)
+bhc_eta_mode01_initialize_with_gt: true
+eval: true
+
+# optimization parameters
+iterations: 20000
+position_lr_init: 0.0002
+position_lr_final: 0.00002
+position_lr_max_steps: 20000
+density_lr_init: 0.01  # 0.01
+density_lr_final: 0.001  # 0.001
+density_lr_max_steps: 20000
+density_res_lr_init: 10.0  # 0.1
+density_res_lr_final: 1.0  # 0.01
+density_res_lr_max_steps: 20000
+global_density_control_lr_init: 0.001  # 0.01
+global_density_control_lr_final: 0.0001  # 0.001
+global_density_control_lr_max_steps: 20000
+global_density_res_lr_init: 0.1  # 0.1
+global_density_res_lr_final: 0.01  # 0.01
+global_density_res_lr_max_steps: 20000
+scaling_lr_init: 0.005  # 0.005
+scaling_lr_final: 0.0005  # 0.0005
+scaling_lr_max_steps: 20000
+rotation_lr_init: 0.001
+rotation_lr_final: 0.0001
+rotation_lr_max_steps: 20000
+
+bhc_gamma_lr_init: 0.0
+bhc_gamma_lr_final: 0.0
+bhc_gamma_lr_max_steps: 20000
+bhc_photon_energy_min: 10.0
+bhc_photon_energy_max: 90.0
+bhc_metal_mask_threshold: 0.08
+
+bhc_density_init_scale: 0.5  # 0.5
+
+lambda_dssim: 0.25   # default: 0.25
+lambda_tv: 3.0      # default: 0.05
+tv_vol_size: 32
+density_min_threshold: 0.00001    # default: 0.00001
+densification_interval: 200   # default: 100
+densify_from_iter: 500
+densify_until_iter: 15000
+densify_grad_threshold: 5.0e-5    # default: 5.0e-5
+densify_scale_threshold: 0.1    # default: 0.1
+max_screen_size: null
+max_scale: null
+max_num_gaussians: 500000
+
+# pipeline parameters
+compute_cov3D_python: false
+debug: false
