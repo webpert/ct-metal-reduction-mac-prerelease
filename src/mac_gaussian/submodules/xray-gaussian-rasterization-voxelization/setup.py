@@ -38,7 +38,6 @@ with quiet_build():
                 extra_compile_args={
                     "nvcc": [
                         "-w",
-                        "-arch=sm_89",
                         "-I" + os.path.join(os.path.dirname(os.path.abspath(__file__)), "third_party/glm/"),
                     ]
                 },
