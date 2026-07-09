@@ -60,7 +60,7 @@ class Scene:
             self.ref_idx = np.load(osp.join(args.source_path, "ref_idx.npy"))
             self.ref_mu_gt = np.load(osp.join(args.source_path, "ref_mu_gt.npy"))
         except Exception as e:
-            print('reference atten. coeff. info is not available!')
+            print('initalization without reference atten. coeff. info')
             self.ref_idx = None
             self.ref_mu_gt = None
 
