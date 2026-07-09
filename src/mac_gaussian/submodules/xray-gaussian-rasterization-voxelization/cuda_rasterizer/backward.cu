@@ -711,7 +711,7 @@ void BACKWARD::preprocess(
 }
 
 __global__ void accumulate_bhc_eta(float* dL_dbhc_eta, float* dL_dbhc_eta_pixel, int W, int H) {
-    int k = blockIdx.x * blockDim.x + threadIdx.x;  // BHC_ETA_COUNT에 대한 index
+    int k = blockIdx.x * blockDim.x + threadIdx.x;
     if (k >= BHC_ETA_COUNT) return;
 
     float sum = 0.0f;
@@ -765,10 +765,6 @@ void BACKWARD::render(
 {
 	float* dL_dbhc_eta_pixel;
 	float* dL_dbhc_gamma_pixel;
-	// cudaMalloc((void**)&dL_dbhc_eta_pixel, BHC_ETA_COUNT * H * W * sizeof(float));
-	// cudaMemset(dL_dbhc_eta_pixel, 0, BHC_ETA_COUNT * H * W * sizeof(float));  // 0으로 초기화	
-	// cudaMalloc((void**)&dL_dbhc_gamma_pixel, 1 * H * W * sizeof(float));
-	// cudaMemset(dL_dbhc_gamma_pixel, 0, 1 * H * W * sizeof(float));  // 0으로 초기화	
 
 	renderCUDA<NUM_CHANNELS> << <grid, block >> >(
 		ranges,

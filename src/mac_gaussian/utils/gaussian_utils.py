@@ -19,7 +19,7 @@ def inverse_softmax(y, alpha = 1.0, normalize = "min0"):
     assert torch.all(y > 0), "y must be strictly positive"
     log_y = torch.log(y)
 
-    # 기본 inverse (up to constant shift)
+    
     x = log_y / alpha
 
     if normalize == "min0":

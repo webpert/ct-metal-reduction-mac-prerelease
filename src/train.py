@@ -55,20 +55,20 @@ def sample_tiny_volume_center_from_mask(
         torch.Tensor: [3] tiny volume 중심 좌표 (x, y, z)
     """
 
-    # metal voxel 인덱스 추출
+    
     metal_indices = torch.nonzero(vol_mask_shell > 0, as_tuple=False)  # (N, 3)
     if metal_indices.numel() == 0:
         raise ValueError("vol_mask에 metal voxel이 없습니다.")
 
-    # voxel 인덱스를 실제 좌표로 변환
-    # (보통 voxel center를 기준으로 변환)
+    
+    
     metal_coords = bbox_min + (metal_indices + 0.5) * voxel_size  # (N, 3)
 
-    # tiny volume 중심이 bbox 내부에 완전히 포함되도록 가능한 좌표 범위 계산
+    
     valid_min = bbox_min + tv_vol_sVoxel / 2
     valid_max = bbox_max - tv_vol_sVoxel / 2
 
-    # 유효 영역 안에 완전히 들어가는 metal voxel만 필터링
+    
     valid_mask = (
         (metal_coords[:, 0] >= valid_min[0]) & (metal_coords[:, 0] <= valid_max[0]) &
         (metal_coords[:, 1] >= valid_min[1]) & (metal_coords[:, 1] <= valid_max[1]) &
@@ -80,7 +80,7 @@ def sample_tiny_volume_center_from_mask(
     if valid_coords.numel() == 0:
         raise ValueError("bbox 내부에 완전히 포함되는 metal voxel이 없습니다.")
 
-    # 무작위로 하나 선택
+    
     rand_idx = torch.randint(0, valid_coords.shape[0], (1,))
     tv_vol_center = valid_coords[rand_idx, :].squeeze(0)
     center_index = valid_indices[rand_idx, :].squeeze(0)

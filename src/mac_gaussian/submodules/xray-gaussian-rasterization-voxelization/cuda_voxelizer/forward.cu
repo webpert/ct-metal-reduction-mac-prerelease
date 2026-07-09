@@ -252,7 +252,7 @@ renderCUDA(
 	int toDo = range.y - range.x;
 
 	// Allocate storage for batches of collectively fetched data.
-	extern __shared__ unsigned char smem[];  // byte 단위 버퍼
+	extern __shared__ unsigned char smem[];
 	int*   collected_id                = (int*)smem;
 	float3* collected_xyz              = (float3*)(collected_id + BLOCK3D_SIZE);
 	float* collected_conic_a           = (float*)(collected_xyz + BLOCK3D_SIZE);
