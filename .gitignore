@@ -1,4 +1,3 @@
-research_note/~$*.*
 *.egg-info
 *.pyd
 *.zip
@@ -6,7 +5,6 @@ research_note/~$*.*
 __pycache__/
 build/
 .vscode/
-src/LEAP/*/
 src/output
 output/
 src/mac_gaussian/submodules/simple-knn/
@@ -14,6 +12,4 @@ src/mac_gaussian/submodules/xray-gaussian-rasterization-voxelization/third_party
 src/TIGRE*
 src/config/*.yaml
 !src/config/default.yaml
-!src/LEAP/test/conebeam_geometry.txt
-test.npy
-cylinder3/vol_fdk.npy
+
