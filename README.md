@@ -47,7 +47,7 @@ Download one of the datasets from [link](https://drive.google.com/drive/folders/
 
 ## Gaussian Initialization
 Run the following command to initialize the Gaussian representation.<br>
-($SCENE_PATH can be ``real_walnut`` or something).
+($SCENE_PATH can be ``real_avocado`` or something).
 ```
 python initialize_pcd.py --data $SCENE_PATH
 ```
