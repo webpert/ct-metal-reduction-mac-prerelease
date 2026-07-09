@@ -1,5 +1,5 @@
 # model parameters
-source_path: "/workspace/data/CVPR2026/real_walnut"
+source_path: "/workspace/data/CVPR2026/real_avocado"
 
 view_percentile: 98.0
 model_path: ""

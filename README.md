@@ -43,7 +43,7 @@ docker run -it --gpus all \
 ```
 
 ## Data Preparation
-Download one of the datasets from [link](https://drive.google.com/drive/folders/1l4noH0qe3abyq17l8Ex3BiDFcygj9hLs?usp=drive_link) and extract it to your preferred directory.
+Download one of the datasets from [link](https://drive.google.com/drive/folders/15hwnG4oUeEz-t1Psrwi0Zm--22L_T70O?usp=drive_link) and extract it to your preferred directory.
 
 ## Gaussian Initialization
 Run the following command to initialize the Gaussian representation.<br>
