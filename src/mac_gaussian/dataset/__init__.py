@@ -94,36 +94,15 @@ class Scene:
         point_cloud_path = osp.join(
             self.model_path, "point_cloud/iteration_{}".format(iteration)
         )
-        
+
         mkdir_p(point_cloud_path)
-        self.projector.save(osp.join(point_cloud_path, "eta_pred.npy"))
         if queryfunc is not None:
-            # vol_pred = queryfunc(self.gaussians, self.projector)["vol"]
             vol_tot = queryfunc(self.gaussians, self.projector)
-            vol_gt = self.vol_gt
-            np.save(osp.join(point_cloud_path, "vol_gt.npy"), t2a(vol_gt))
-            optimal_weight = self.projector.get_optimal_weight_for_b
-            # vol_pred = vol_tot["vol"] + (vol_tot["vol_res"]*optimal_weight.item())
             vol_pred = vol_tot["vol"]
             np.save(
                 osp.join(point_cloud_path, "vol_center.npy"),
                 t2a(vol_pred),
             )
-            save_total = False
-            if save_total:
-                vol_lac = vol_tot['vol_lac']
-                np.save(
-                    osp.join(point_cloud_path, "vol_lac.npy"),
-                    t2a(vol_lac),
-                )
-
-            # np.savez(
-            #     osp.join(point_cloud_path, "vol_pred.npz"),
-            #     a = t2a(vol_tot["vol"]),
-            #     b = t2a(vol_tot["vol_res"]),
-            #     gamma = t2a(self.projector.get_bhc_gamma),
-            #     weight_b = optimal_weight
-            # )            
 
     def getTrainCameras(self):
         return self.train_cameras
